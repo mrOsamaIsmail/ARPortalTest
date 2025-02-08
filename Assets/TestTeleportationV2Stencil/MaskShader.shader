@@ -4,6 +4,7 @@ Shader "Unlit/MaskShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _StencilRefVal("StencilMask",Range(0,255)) =0 
+        _CullFace("Culling Face",int) = 0
     }
     SubShader
     {
@@ -16,7 +17,7 @@ Shader "Unlit/MaskShader"
                 Comp Always    
                 Pass Replace  
             }
-            Cull Front
+            Cull [_CullFace]
             ColorMask 0       
             ZWrite Off       
         }
