@@ -12,11 +12,11 @@ Shader "Unlit/MaskShader"
         {
             Stencil
             {
-                Ref [_StencilRefVal]          // Value to write
-                Comp Always    // Always write to the stencil buffer
-                Pass Replace   // Replace existing stencil value
+                Ref [_StencilRefVal]   
+                Comp Always    
+                Pass Replace  
             }
-            Cull off
+            Cull Front
             ColorMask 0       
             ZWrite Off       
         }

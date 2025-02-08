@@ -4,6 +4,7 @@ Shader "Unlit/360Shader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _StencilRef ("StencilID", Range(0,225)) = 0
+        _StencilOP ("Stencil compare function", int) = 3
     }
     SubShader
     {
@@ -17,7 +18,7 @@ Shader "Unlit/360Shader"
             Stencil
             {
                 Ref [_StencilRef]
-                Comp Equal
+                Comp [_StencilOP]
                 Pass Replace
                 //ZFail decrWrap
             }
